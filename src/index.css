@@ -1,0 +1,26 @@
+:root {
+  font-family: "Lato", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* BRAND COLORS */
+  --color-dark_blue: #000000;
+  --color-med_blue: #000000;
+  --color-light_blue: #000000;
+  --color-dark_green: #000000;
+  --color-med_green: #000000;
+  --color-light_green: #000000;
+  --color-red: #000000;
+  --color-yellow: #000000;
+  --color-gray: #000000;
+  --color-cream: #000000;
+}
