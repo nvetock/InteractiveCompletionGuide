@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useState } from "react";
 
 const DAYS = [
   { key: "mon", label: "Monday", short: "M" },
@@ -10,14 +10,15 @@ const DAYS = [
   { key: "sun", label: "Sunday", short: "Su" },
 ];
 
-export default function WeekdaySelector({ value = [], onChange, name = "days" }) {
-  const selected = new Set(value);
+export default function WeekdaySelector({ value = [], onChange }) {
+  const [selected, setSelected] = useState(new Set(value));
 
-  const toggle = useCallback((key) => {
+  const toggle = (key) => {
     const next = new Set(selected);
     next.has(key) ? next.delete(key) : next.add(key);
+    setSelected(next);
     onChange?.(Array.from(next));
-  }, [selected, onChange]);
+  };
 
   return (
     <div className="d-flex flex-wrap gap-2">
@@ -30,14 +31,16 @@ export default function WeekdaySelector({ value = [], onChange, name = "days" })
               className="btn-check"
               id={id}
               type="checkbox"
-              name={name}
-              value={key}
+              autoComplete="off"
               checked={checked}
               onChange={() => toggle(key)}
-              autoComplete="off"
               aria-label={label}
             />
-            <label className="btn btn-outline-primary fw-semibold" htmlFor={id} title={label}>
+            <label
+              className="btn btn-outline-primary fw-semibold"
+              htmlFor={id}
+              title={label}
+            >
               {short}
             </label>
           </div>
