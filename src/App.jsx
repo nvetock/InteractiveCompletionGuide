@@ -5,7 +5,7 @@ import InputForm from './components/InputForm.jsx'
 function App() {
 
   return (
-    <main>
+    <main className='container'>
       <Header />
       <InputForm />
     </main>
